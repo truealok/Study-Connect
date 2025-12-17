@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyConnect - Find Your Perfect Study Mentor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          },
+          colors: {
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+  
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Hero Section -->
+  <section class="pt-20 pb-12 px-4 sm:px-6 lg:px-8" data-id="hero-section">
+    <div class="max-w-7xl mx-auto text-center">
+      <div class="mb-8" data-id="hero-badge">
+        <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-100 text-primary-700">
+          <i data-lucide="zap" class="w-4 h-4 mr-2"></i>
+          AI-Powered Learning Assistant
+        </span>
+      </div>
+      
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight" data-id="hero-title">
+        Connect. Learn. <span class="text-primary-600">Excel.</span>
+      </h1>
+      
+      <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed" data-id="hero-description">
+        Find expert mentors for on-demand help in any subject. Get instant support through chat, audio, or video sessions with verified tutors and senior students.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12" data-id="hero-cta">
+        <button class="inline-flex items-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transform hover:scale-105 transition duration-200 shadow-lg" data-id="find-mentor-btn">
+          <i data-lucide="search" class="w-5 h-5 mr-2"></i>
+          Find a Mentor
+        </button>
+        <button class="inline-flex items-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg border-2 border-primary-600 hover:bg-primary-50 transform hover:scale-105 transition duration-200 shadow-lg" data-id="become-mentor-btn">
+          <i data-lucide="graduation-cap" class="w-5 h-5 mr-2"></i>
+          Become a Mentor
+        </button>
+      </div>
+      
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto" data-id="hero-stats">
+        <div class="text-center" data-id="stat-mentors">
+          <div class="text-3xl font-bold text-primary-600 mb-2">5000+</div>
+          <div class="text-gray-600">Expert Mentors</div>
+        </div>
+        <div class="text-center" data-id="stat-students">
+          <div class="text-3xl font-bold text-primary-600 mb-2">50K+</div>
+          <div class="text-gray-600">Active Students</div>
+        </div>
+        <div class="text-center" data-id="stat-subjects">
+          <div class="text-3xl font-bold text-primary-600 mb-2">100+</div>
+          <div class="text-gray-600">Subjects Covered</div>
+        </div>
+        <div class="text-center" data-id="stat-satisfaction">
+          <div class="text-3xl font-bold text-primary-600 mb-2">98%</div>
+          <div class="text-gray-600">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subject Categories -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white" data-id="subjects-section">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12" data-id="subjects-header">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Popular Subjects</h2>
+        <p class="text-lg text-gray-600">Get expert help in any subject, anytime</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" data-id="subjects-grid">
+        <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-6 text-white text-center hover:transform hover:scale-105 transition duration-200 cursor-pointer" data-id="subject-math">
+          <i data-lucide="calculator" class="w-8 h-8 mx-auto mb-3"></i>
+          <div class="font-semibold">Mathematics</div>
+          <div class="text-sm opacity-90">1200+ mentors</div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-6 text-white text-center hover:transform hover:scale-105 transition duration-200 cursor-pointer" data-id="subject-science">
+          <i data-lucide="flask-conical" class="w-8 h-8 mx-auto mb-3"></i>
+          <div class="font-semibold">Science</div>
+          <div class="text-sm opacity-90">800+ mentors</div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-6 text-white text-center hover:transform hover:scale-105 transition duration-200 cursor-pointer" data-id="subject-english">
+          <i data-lucide="book-open" class="w-8 h-8 mx-auto mb-3"></i>
+          <div class="font-semibold">English</div>
+          <div class="text-sm opacity-90">600+ mentors</div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-6 text-white text-center hover:transform hover:scale-105 transition duration-200 cursor-pointer" data-id="subject-history">
+          <i data-lucide="scroll" class="w-8 h-8 mx-auto mb-3"></i>
+          <div class="font-semibold">History</div>
+          <div class="text-sm opacity-90">400+ mentors</div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-xl p-6 text-white text-center hover:transform hover:scale-105 transition duration-200 cursor-pointer" data-id="subject-coding">
+          <i data-lucide="code" class="w-8 h-8 mx-auto mb-3"></i>
+          <div class="font-semibold">Programming</div>
+          <div class="text-sm opacity-90">900+ mentors</div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl p-6 text-white text-center hover:transform hover:scale-105 transition duration-200 cursor-pointer" data-id="subject-more">
+          <i data-lucide="plus" class="w-8 h-8 mx-auto mb-3"></i>
+          <div class="font-semibold">100+ More</div>
+          <div class="text-sm opacity-90">All subjects</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8" data-id="how-it-works-section">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12" data-id="how-it-works-header">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">How StudyConnect Works</h2>
+        <p class="text-lg text-gray-600">Get help in 3 simple steps</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8" data-id="steps-grid">
+        <div class="text-center" data-id="step-1">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="search" class="w-8 h-8 text-primary-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">1. Search & Match</h3>
+          <p class="text-gray-600">Find the perfect mentor based on subject, availability, ratings, and learning style preferences.</p>
+        </div>
+        
+        <div class="text-center" data-id="step-2">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="video" class="w-8 h-8 text-primary-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">2. Connect & Learn</h3>
+          <p class="text-gray-600">Start learning instantly through chat, audio, or video sessions with interactive whiteboards.</p>
+        </div>
+        
+        <div class="text-center" data-id="step-3">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="trending-up" class="w-8 h-8 text-primary-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">3. Track Progress</h3>
+          <p class="text-gray-600">Monitor your learning journey, earn badges, and access recorded sessions for revision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white" data-id="features-section">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12" data-id="features-header">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Powerful Features</h2>
+        <p class="text-lg text-gray-600">Everything you need for effective learning</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-id="features-grid">
+        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 hover:transform hover:scale-105 transition duration-200" data-id="feature-ai-helper">
+          <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="brain" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">AI-Powered Q&A</h3>
+          <p class="text-gray-600">Get instant hints and explanations when no mentor is available.</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 hover:transform hover:scale-105 transition duration-200" data-id="feature-whiteboard">
+          <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="pen-tool" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Live Whiteboard</h3>
+          <p class="text-gray-600">Interactive collaboration board for real-time problem-solving.</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 hover:transform hover:scale-105 transition duration-200" data-id="feature-recording">
+          <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="video" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Session Recording</h3>
+          <p class="text-gray-600">Save and revisit past tutoring sessions anytime.</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 hover:transform hover:scale-105 transition duration-200" data-id="feature-emergency">
+          <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Emergency Help</h3>
+          <p class="text-gray-600">Get urgent 10-15 minute quick-help calls for last-minute doubts.</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 hover:transform hover:scale-105 transition duration-200" data-id="feature-gamification">
+          <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="trophy" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Gamified Learning</h3>
+          <p class="text-gray-600">Earn points, badges, and compete on leaderboards.</p>
+        </div>
+        
+        <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-6 hover:transform hover:scale-105 transition duration-200" data-id="feature-multilingual">
+          <div class="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center mb-4">
+            <i data-lucide="globe" class="w-6 h-6 text-white"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Multilingual Support</h3>
+          <p class="text-gray-600">Connect with mentors who speak your preferred language.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary-600 to-primary-700" data-id="cta-section">
+    <div class="max-w-4xl mx-auto text-center text-white">
+      <h2 class="text-3xl font-bold mb-4" data-id="cta-title">Ready to Accelerate Your Learning?</h2>
+      <p class="text-xl mb-8 opacity-90" data-id="cta-description">Join thousands of students who are already excelling with StudyConnect</p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-id="cta-buttons">
+        <button class="inline-flex items-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transform hover:scale-105 transition duration-200 shadow-lg" data-id="cta-get-started">
+          <i data-lucide="rocket" class="w-5 h-5 mr-2"></i>
+          Get Started Free
+        </button>
+        <button class="inline-flex items-center px-8 py-4 bg-transparent text-white font-semibold rounded-lg border-2 border-white hover:bg-white hover:text-primary-600 transform hover:scale-105 transition duration-200" data-id="cta-learn-more">
+          <i data-lucide="play" class="w-5 h-5 mr-2"></i>
+          Watch Demo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-container" data-source="components/footer.html"></div>
+
+  <!-- Authentication Modal (Hidden by default) -->
+  <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" data-id="auth-modal">
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white rounded-xl max-w-md w-full p-8 relative" data-id="auth-modal-content">
+        <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" data-id="close-auth-modal">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        
+        <div class="text-center mb-6" data-id="auth-header">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">Welcome to StudyConnect</h2>
+          <p class="text-gray-600">Sign in to start your learning journey</p>
+        </div>
+        
+        <div class="space-y-4" data-id="auth-buttons">
+          <button class="w-full flex items-center justify-center px-4 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition duration-200" data-id="student-login">
+            <i data-lucide="book-open" class="w-5 h-5 mr-2"></i>
+            Continue as Student
+          </button>
+          
+          <button class="w-full flex items-center justify-center px-4 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-200" data-id="mentor-login">
+            <i data-lucide="graduation-cap" class="w-5 h-5 mr-2"></i>
+            Continue as Mentor
+          </button>
+        </div>
+        
+        <div class="mt-6 pt-6 border-t border-gray-200 text-center" data-id="auth-footer">
+          <p class="text-sm text-gray-600">
+            By continuing, you agree to our 
+            <a href="#" class="text-primary-600 hover:underline">Terms of Service</a> 
+            and 
+            <a href="#" class="text-primary-600 hover:underline">Privacy Policy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+  import { loadComponent } from './scripts/components/loader.js';
+
+  async function initPage() {
+    // Load components
+    await loadComponent('#navbar-container');
+    await loadComponent('#footer-container');
+    await loadComponent('#modal-container');
+
+    // Now the modal exists in the DOM
+    lucide.createIcons();
+
+    const authModal = document.getElementById('auth-modal');
+    const closeAuthModal = document.querySelector('[data-id="close-auth-modal"]');
+    const findMentorBtn = document.getElementById('find-mentor-btn');
+    const becomeMentorBtn = document.getElementById('become-mentor-btn');
+    const ctaGetStarted = document.getElementById('cta-get-started');
+
+    function showAuthModal() {
+      authModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideAuthModal() {
+      authModal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    findMentorBtn?.addEventListener('click', showAuthModal);
+    becomeMentorBtn?.addEventListener('click', showAuthModal);
+    ctaGetStarted?.addEventListener('click', showAuthModal);
+    closeAuthModal?.addEventListener('click', hideAuthModal);
+
+    // Outside click
+    authModal?.addEventListener('click', (e) => {
+      if (e.target === authModal) hideAuthModal();
+    });
+
+    // Auth selections
+    document.getElementById('student-login')?.addEventListener('click', () => {
+      hideAuthModal();
+      window.location.href = 'student-dashboard.html';
+    });
+
+    document.getElementById('mentor-login')?.addEventListener('click', () => {
+      hideAuthModal();
+      window.location.href = 'mentor-dashboard.html';
+    });
+
+    // Subject cards
+    document.querySelectorAll('[data-id^="subject-"]').forEach(card => {
+      card.addEventListener('click', () => {
+        const subject = card.dataset.id.replace('subject-', '');
+        showAuthModal();
+      });
+    });
+  }
+
+  // Wait for DOM ready before loading components
+  document.addEventListener('DOMContentLoaded', initPage);
+</script>
+
+</body>
+</html>

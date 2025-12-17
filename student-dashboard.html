@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - StudyConnect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          },
+          colors: {
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-gray-50 min-h-screen">
+  
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/student-navbar.html"></div>
+
+  <!-- Main Content -->
+  <main class="pt-16 px-4 sm:px-6 lg:px-8 pb-8" data-id="dashboard-main">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Welcome Header with Motivational Quote -->
+      <div class="mb-8" data-id="welcome-header">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome back, Alok!</h1>
+        <p class="text-gray-600 mb-3">Continue your learning journey</p>
+        
+        <!-- Motivational Quote Section -->
+        <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4 border border-blue-100" data-id="motivational-quote-card">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+              <i data-lucide="quote" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-medium text-gray-800 italic" data-id="motivational-quote-text">
+                "Every expert was once a beginner"
+              </p>
+              <p class="text-xs text-gray-500 mt-1" data-id="quote-refresh-hint">
+                Quote changes daily • Click to refresh
+              </p>
+            </div>
+            <button class="text-blue-500 hover:text-blue-700 transition-colors" data-id="refresh-quote-btn" title="Get new quote">
+              <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8" data-id="stats-cards">
+        <div class="bg-white rounded-xl p-6 shadow-sm border" data-id="stat-sessions">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+              <i data-lucide="video" class="w-6 h-6 text-blue-600"></i>
+            </div>
+            <span class="text-sm text-gray-500">This Month</span>
+          </div>
+          <div class="text-2xl font-bold text-gray-900 mb-1">24</div>
+          <div class="text-sm text-gray-600">Sessions Completed</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm border" data-id="stat-hours">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+              <i data-lucide="clock" class="w-6 h-6 text-green-600"></i>
+            </div>
+            <span class="text-sm text-gray-500">Total</span>
+          </div>
+          <div class="text-2xl font-bold text-gray-900 mb-1">48h</div>
+          <div class="text-sm text-gray-600">Learning Time</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm border" data-id="stat-points">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+              <i data-lucide="trophy" class="w-6 h-6 text-purple-600"></i>
+            </div>
+            <span class="text-sm text-gray-500">Points</span>
+          </div>
+          <div class="text-2xl font-bold text-gray-900 mb-1">1,250</div>
+          <div class="text-sm text-gray-600">Total Points</div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 shadow-sm border" data-id="stat-streak">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+              <i data-lucide="flame" class="w-6 h-6 text-orange-600"></i>
+            </div>
+            <span class="text-sm text-gray-500">Days</span>
+          </div>
+          <div class="text-2xl font-bold text-gray-900 mb-1">7</div>
+          <div class="text-sm text-gray-600">Learning Streak</div>
+        </div>
+      </div>
+
+      <!-- Main Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8" data-id="dashboard-grid">
+        
+        <!-- Left Column -->
+        <div class="lg:col-span-2 space-y-8" data-id="left-column">
+          
+          <!-- Quick Actions -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border" data-id="quick-actions">
+            <h2 class="text-xl font-semibold text-gray-900 mb-6">Quick Actions</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <button class="flex flex-col items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition duration-200" data-id="find-mentor-action">
+                <i data-lucide="search" class="w-8 h-8 text-blue-600 mb-2"></i>
+                <span class="text-sm font-medium text-gray-900">Find Mentor</span>
+              </button>
+              
+              <button class="flex flex-col items-center p-4 bg-red-50 rounded-lg hover:bg-red-100 transition duration-200" data-id="emergency-help-action">
+                <i data-lucide="zap" class="w-8 h-8 text-red-600 mb-2"></i>
+                <span class="text-sm font-medium text-gray-900">Emergency Help</span>
+              </button>
+              
+              <button class="flex flex-col items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition duration-200" data-id="study-helper-action">
+                <i data-lucide="book-open" class="w-8 h-8 text-green-600 mb-2"></i>
+                <span class="text-sm font-medium text-gray-900">Study Helper</span>
+              </button>
+              
+              <button class="flex flex-col items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition duration-200" data-id="my-sessions-action">
+                <i data-lucide="video" class="w-8 h-8 text-purple-600 mb-2"></i>
+                <span class="text-sm font-medium text-gray-900">My Sessions</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Upcoming Sessions -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border" data-id="upcoming-sessions">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-semibold text-gray-900">Upcoming Sessions</h2>
+              <button class="text-primary-600 hover:text-primary-700 font-medium text-sm" data-id="view-all-sessions">
+                View All
+              </button>
+            </div>
+            
+            <div class="space-y-4" data-id="sessions-list">
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg" data-id="session-1">
+                <div class="flex items-center space-x-4">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Mentor" class="w-12 h-12 rounded-full object-cover">
+                  <div>
+                    <div class="font-medium text-gray-900">Mathematics with Alok Singh</div>
+                    <div class="text-sm text-gray-600">Today, 3:00 PM - 4:00 PM</div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <span class="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">Video</span>
+                  <button class="text-primary-600 hover:text-primary-700 font-medium text-sm">Join</button>
+                </div>
+              </div>
+              
+              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg" data-id="session-2">
+                <div class="flex items-center space-x-4">
+                  <img src="https://images.unsplash.com/photo-1494790108755-2616c4c9e852?w=100&h=100&fit=crop&crop=face" alt="Mentor" class="w-12 h-12 rounded-full object-cover">
+                  <div>
+                    <div class="font-medium text-gray-900">Physics with Sarah Kim</div>
+                    <div class="text-sm text-gray-600">Tomorrow, 2:00 PM - 3:00 PM</div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Audio</span>
+                  <button class="text-gray-400 text-sm cursor-not-allowed">Pending</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Tracker -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border" data-id="progress-tracker">
+            <h2 class="text-xl font-semibold text-gray-900 mb-6">Learning Progress</h2>
+            
+            <div class="space-y-6" data-id="subject-progress">
+              <div data-id="math-progress">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-medium text-gray-900">Mathematics</span>
+                  <span class="text-sm text-gray-600">85%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+              
+              <div data-id="physics-progress">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-medium text-gray-900">Physics</span>
+                  <span class="text-sm text-gray-600">72%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-green-600 h-2 rounded-full" style="width: 72%"></div>
+                </div>
+              </div>
+              
+              <div data-id="chemistry-progress">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-medium text-gray-900">Chemistry</span>
+                  <span class="text-sm text-gray-600">68%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-purple-600 h-2 rounded-full" style="width: 68%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="space-y-8" data-id="right-column">
+          
+          <!-- Study Helper (Replaced AI Assistant) -->
+          <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200" data-id="study-helper-card">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="book-open" class="w-5 h-5 text-white"></i>
+              </div>
+              <h3 class="font-semibold text-gray-900">Study Helper</h3>
+            </div>
+            <p class="text-gray-700 mb-4 text-sm">Get study guides, practice problems, and learning resources when you need them.</p>
+            <button class="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-200 text-sm font-medium" data-id="open-study-helper-btn">
+              Open Study Helper
+            </button>
+          </div>
+
+          <!-- Recent Badges -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border" data-id="recent-badges">
+            <h3 class="font-semibold text-gray-900 mb-4">Recent Achievements</h3>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3" data-id="badge-1">
+                <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="star" class="w-5 h-5 text-yellow-600"></i>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900 text-sm">Week Warrior</div>
+                  <div class="text-xs text-gray-600">7-day learning streak</div>
+                </div>
+              </div>
+              
+              <div class="flex items-center space-x-3" data-id="badge-2">
+                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="award" class="w-5 h-5 text-blue-600"></i>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900 text-sm">Math Master</div>
+                  <div class="text-xs text-gray-600">Completed 10 math sessions</div>
+                </div>
+              </div>
+              
+              <div class="flex items-center space-x-3" data-id="badge-3">
+                <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                  <i data-lucide="users" class="w-5 h-5 text-purple-600"></i>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-900 text-sm">Helper</div>
+                  <div class="text-xs text-gray-600">Helped 5 fellow students</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Favorite Mentors -->
+          <div class="bg-white rounded-xl p-6 shadow-sm border" data-id="favorite-mentors">
+            <h3 class="font-semibold text-gray-900 mb-4">Favorite Mentors</h3>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between" data-id="mentor-1">
+                <div class="flex items-center space-x-3">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228fd?w=100&h=100&fit=crop&crop=face" alt="David" class="w-10 h-10 rounded-full object-cover">
+                  <div>
+                    <div class="font-medium text-gray-900 text-sm">Alok Singh</div>
+                    <div class="text-xs text-gray-600">Mathematics</div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-1">2
+                  <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+                  <span class="text-sm text-gray-600">4.9</span>
+                </div>
+              </div>
+              
+              <div class="flex items-center justify-between" data-id="mentor-2">
+                <div class="flex items-center space-x-3">
+                  <img src="https://images.unsplash.com/photo-1494790108755-2616c4c9e852?w=100&h=100&fit=crop&crop=face" alt="Sarah" class="w-10 h-10 rounded-full object-cover">
+                  <div>
+                    <div class="font-medium text-gray-900 text-sm">Sarah Kim</div>
+                    <div class="text-xs text-gray-600">Physics</div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-1">
+                  <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+                  <span class="text-sm text-gray-600">4.8</span>
+                </div>
+              </div>
+              
+              <div class="flex items-center justify-between" data-id="mentor-3">
+                <div class="flex items-center space-x-3">
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Mike" class="w-10 h-10 rounded-full object-cover">
+                  <div>
+                    <div class="font-medium text-gray-900 text-sm">Parag Shirke</div>
+                    <div class="text-xs text-gray-600">Chemistry</div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-1">
+                  <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+                  <span class="text-sm text-gray-600">4.7</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Emergency Help -->
+          <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 border border-red-200" data-id="emergency-help-card">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mr-3">
+                <i data-lucide="zap" class="w-5 h-5 text-white"></i>
+              </div>
+              <h3 class="font-semibold text-gray-900">Need Urgent Help?</h3>
+            </div>
+            <p class="text-gray-700 mb-4 text-sm">Get instant 10-15 minute help for last-minute doubts.</p>
+            <button class="w-full bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition duration-200 text-sm font-medium" data-id="emergency-help-btn">
+              Get Emergency Help
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Study Helper Modal (Replaced AI Helper Modal) -->
+  <div id="study-helper-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" data-id="study-helper-modal">
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white rounded-xl max-w-2xl w-full max-h-96 flex flex-col" data-id="study-modal-content">
+        <div class="p-6 border-b border-gray-200 flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+              <i data-lucide="book-open" class="w-5 h-5 text-white"></i>
+            </div>
+            <h2 class="text-xl font-semibold text-gray-900">Study Helper</h2>
+          </div>
+          <button class="text-gray-400 hover:text-gray-600 transition-colors duration-200" data-id="close-study-modal">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        
+        <div class="flex-1 p-6 overflow-y-auto" data-id="study-resources-area">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-id="study-resources">
+            <div class="p-4 bg-blue-50 rounded-lg" data-id="practice-problems">
+              <div class="flex items-center mb-2">
+                <i data-lucide="edit" class="w-5 h-5 text-blue-600 mr-2"></i>
+                <h3 class="font-medium text-gray-900">Practice Problems</h3>
+              </div>
+              <p class="text-sm text-gray-600 mb-3">Get subject-specific practice questions</p>
+              <button class="text-blue-600 hover:text-blue-700 text-sm font-medium">Start Practice →</button>
+            </div>
+            
+            <div class="p-4 bg-green-50 rounded-lg" data-id="study-guides">
+              <div class="flex items-center mb-2">
+                <i data-lucide="book" class="w-5 h-5 text-green-600 mr-2"></i>
+                <h3 class="font-medium text-gray-900">Study Guides</h3>
+              </div>
+              <p class="text-sm text-gray-600 mb-3">Access comprehensive study materials</p>
+              <button class="text-green-600 hover:text-green-700 text-sm font-medium">Browse Guides →</button>
+            </div>
+            
+            <div class="p-4 bg-purple-50 rounded-lg" data-id="flashcards">
+              <div class="flex items-center mb-2">
+                <i data-lucide="layers" class="w-5 h-5 text-purple-600 mr-2"></i>
+                <h3 class="font-medium text-gray-900">Flashcards</h3>
+              </div>
+              <p class="text-sm text-gray-600 mb-3">Review key concepts with flashcards</p>
+              <button class="text-purple-600 hover:text-purple-700 text-sm font-medium">Open Flashcards →</button>
+            </div>
+            
+            <div class="p-4 bg-orange-50 rounded-lg" data-id="formula-sheets">
+              <div class="flex items-center mb-2">
+                <i data-lucide="calculator" class="w-5 h-5 text-orange-600 mr-2"></i>
+                <h3 class="font-medium text-gray-900">Formula Sheets</h3>
+              </div>
+              <p class="text-sm text-gray-600 mb-3">Quick reference for important formulas</p>
+              <button class="text-orange-600 hover:text-orange-700 text-sm font-medium">View Formulas →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load navbar
+    loadComponent('#navbar-container');
+    
+    // Initialize icons after components are loaded
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 100);
+    
+    // Motivational quotes system
+    const motivationalQuotes = [
+      "Every expert was once a beginner",
+      "Knowledge is power, use it wisely", 
+      "Success starts with curiosity",
+      "Dream big, learn bigger",
+      "The best time to plant a tree was 20 years ago. The second best time is now",
+      "Learning never stops, and neither should you",
+      "Small steps every day lead to big results",
+      "Your only limit is your mindset",
+      "Believe in yourself and all that you are",
+      "The future belongs to those who learn today",
+      "Every mistake is a lesson in disguise",
+      "Progress, not perfection",
+      "You are braver than you believe, stronger than you seem",
+      "Turn your wounds into wisdom",
+      "Great things never come from comfort zones",
+      "Be yourself; everyone else is already taken",
+      "The journey of a thousand miles begins with one step",
+      "What lies behind us and what lies before us are tiny matters compared to what lies within us",
+      "Education is the passport to the future",
+      "The more that you read, the more things you will know"
+    ];
+
+    function getRandomQuote() {
+      return motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)];
+    }
+
+    function updateQuote() {
+      const quoteElement = document.querySelector('[data-id="motivational-quote-text"]');
+      const refreshBtn = document.querySelector('[data-id="refresh-quote-btn"]');
+      
+      if (quoteElement && refreshBtn) {
+        // Add loading animation
+        refreshBtn.classList.add('animate-spin');
+        
+        setTimeout(() => {
+          quoteElement.textContent = `"${getRandomQuote()}"`;
+          refreshBtn.classList.remove('animate-spin');
+        }, 500);
+      }
+    }
+
+    // Dashboard functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize with a random quote on page load
+      updateQuote();
+      
+      // Set up auto-quote refresh every 5 minutes (300000ms)
+      setInterval(updateQuote, 300000);
+      
+      // Manual quote refresh
+      const refreshBtn = document.querySelector('[data-id="refresh-quote-btn"]');
+      refreshBtn?.addEventListener('click', updateQuote);
+      
+      // Study Helper Modal (Replaced AI Helper)
+      const studyHelperModal = document.getElementById('study-helper-modal');
+      const studyHelperBtns = document.querySelectorAll('[data-id="open-study-helper-btn"], [data-id="study-helper-action"]');
+      const closeStudyModal = document.querySelector('[data-id="close-study-modal"]');
+      
+      // Show Study Helper Modal
+      studyHelperBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          studyHelperModal?.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      
+      // Close Study Helper Modal - FIXED CROSS BUTTON
+      function closeStudyHelperModal() {
+        studyHelperModal?.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+      
+      // Multiple ways to close modal - ensures cross button works
+      closeStudyModal?.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        closeStudyHelperModal();
+      });
+      
+      studyHelperModal?.addEventListener('click', (e) => {
+        if (e.target === studyHelperModal) {
+          closeStudyHelperModal();
+        }
+      });
+      
+      // Escape key to close modal
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !studyHelperModal?.classList.contains('hidden')) {
+          closeStudyHelperModal();
+        }
+      });
+      
+      // Quick Actions
+      document.querySelector('[data-id="find-mentor-action"]')?.addEventListener('click', () => {
+        window.location.href = 'find-mentors.html';
+      });
+      
+      document.querySelector('[data-id="emergency-help-action"]')?.addEventListener('click', () => {
+        alert('Connecting you to an available mentor for emergency help...');
+      });
+      
+      document.querySelector('[data-id="my-sessions-action"]')?.addEventListener('click', () => {
+        // Would redirect to sessions page
+        alert('Redirecting to your sessions...');
+      });
+      
+      // Emergency Help Button
+      document.querySelector('[data-id="emergency-help-btn"]')?.addEventListener('click', () => {
+        alert('Emergency help request sent! A mentor will connect with you within 2 minutes.');
+      });
+      
+      // Study resources buttons
+      const studyResourceButtons = [
+        '[data-id="practice-problems"] button',
+        '[data-id="study-guides"] button', 
+        '[data-id="flashcards"] button',
+        '[data-id="formula-sheets"] button'
+      ];
+      
+      studyResourceButtons.forEach(selector => {
+        document.querySelector(selector)?.addEventListener('click', (e) => {
+          e.preventDefault();
+          const resourceType = e.target.textContent.replace(' →', '');
+          alert(`Opening ${resourceType}...`);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

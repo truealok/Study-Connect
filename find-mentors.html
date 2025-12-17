@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Mentors - StudyConnect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sofia': ['sofia-pro', 'sans-serif']
+          },
+          colors: {
+            primary: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sofia bg-gray-50 min-h-screen">
+  
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/student-navbar.html"></div>
+
+  <!-- Main Content -->
+  <main class="pt-16 px-4 sm:px-6 lg:px-8 pb-8" data-id="main-content">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Header -->
+      <div class="mb-8" data-id="page-header">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Find Your Perfect Mentor</h1>
+        <p class="text-gray-600">Connect with expert tutors and get personalized help in any subject</p>
+      </div>
+
+      <!-- Search and Filters -->
+      <div class="bg-white rounded-xl p-6 shadow-sm border mb-8" data-id="search-filters">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <!-- Search Input -->
+          <div class="md:col-span-2" data-id="search-input-container">
+            <div class="relative">
+              <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+              <input type="text" placeholder="Search by subject or mentor name..." class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500" data-id="search-input">
+            </div>
+          </div>
+          
+          <!-- Subject Filter -->
+          <div data-id="subject-filter-container">
+            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500" data-id="subject-filter">
+              <option value="">All Subjects</option>
+              <option value="mathematics">Mathematics</option>
+              <option value="physics">Physics</option>
+              <option value="chemistry">Chemistry</option>
+              <option value="biology">Biology</option>
+              <option value="english">English</option>
+              <option value="history">History</option>
+              <option value="programming">Programming</option>
+            </select>
+          </div>
+          
+          <!-- Availability Filter -->
+          <div data-id="availability-filter-container">
+            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500" data-id="availability-filter">
+              <option value="">All Mentors</option>
+              <option value="online">Available Now</option>
+              <option value="today">Available Today</option>
+              <option value="week">Available This Week</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Advanced Filters Toggle -->
+        <div class="mt-4" data-id="advanced-filters-toggle">
+          <button class="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center" data-id="toggle-advanced-filters">
+            <i data-lucide="settings" class="w-4 h-4 mr-2"></i>
+            Advanced Filters
+            <i data-lucide="chevron-down" class="w-4 h-4 ml-1" data-id="filter-chevron"></i>
+          </button>
+        </div>
+        
+        <!-- Advanced Filters Panel (Hidden by default) -->
+        <div class="mt-4 p-4 bg-gray-50 rounded-lg hidden" data-id="advanced-filters-panel">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div data-id="rating-filter-container">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Minimum Rating</label>
+              <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500" data-id="rating-filter">
+                <option value="">Any Rating</option>
+                <option value="4.5">4.5+ Stars</option>
+                <option value="4.0">4.0+ Stars</option>
+                <option value="3.5">3.5+ Stars</option>
+              </select>
+            </div>
+            
+            <div data-id="price-filter-container">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Price Range</label>
+              <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500" data-id="price-filter">
+                <option value="">Any Price</option>
+                <option value="0-20">$0 - $20/hour</option>
+                <option value="20-50">$20 - $50/hour</option>
+                <option value="50+">$50+/hour</option>
+              </select>
+            </div>
+            
+            <div data-id="session-type-filter-container">
+              <label class="block text-sm font-medium text-gray-700 mb-2">Session Type</label>
+              <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500" data-id="session-type-filter">
+                <option value="">All Types</option>
+                <option value="video">Video Call</option>
+                <option value="audio">Audio Call</option>
+                <option value="chat">Chat Only</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Header -->
+      <div class="flex items-center justify-between mb-6" data-id="results-header">
+        <div data-id="results-count">
+          <p class="text-gray-600">Showing <span class="font-medium text-gray-900">24</span> mentors</p>
+        </div>
+        
+        <div class="flex items-center space-x-4" data-id="view-options">
+          <div class="flex items-center space-x-2">
+            <span class="text-sm text-gray-600">Sort by:</span>
+            <select class="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary-500" data-id="sort-select">
+              <option value="recommended">Recommended</option>
+              <option value="rating">Highest Rated</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+          
+          <div class="flex border border-gray-300 rounded-md overflow-hidden" data-id="view-toggle">
+            <button class="px-3 py-1 bg-primary-100 text-primary-700" data-id="grid-view-btn">
+              <i data-lucide="grid-3x3" class="w-4 h-4"></i>
+            </button>
+            <button class="px-3 py-1 text-gray-600 hover:bg-gray-100" data-id="list-view-btn">
+              <i data-lucide="list" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mentors Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-id="mentors-grid">
+        
+        <!-- Mentor Card 1 -->
+        <div class="bg-white rounded-xl p-6 shadow-sm border hover:shadow-lg transition duration-200" data-id="mentor-card-1">
+          <div class="flex items-start space-x-4 mb-4">
+            <div class="relative">
+              
+              <img src="" alt="Alok Singh" class="w-16 h-16 rounded-full object-cover">
+
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-400 border-2 border-white rounded-full"></div>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-1">Alok Singh</h3>
+              <p class="text-sm text-gray-600 mb-2">Mathematics Expert</p>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400 mr-2">
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+                <span class="text-sm text-gray-600">4.9 (127 reviews)</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Available Now</span>
+                <span class="text-sm font-medium text-gray-900">Rs.450/hour</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mb-4" data-id="mentor-1-subjects">
+            <p class="text-sm text-gray-600 mb-2">Specializes in:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">Calculus</span>
+              <span class="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">Algebra</span>
+              <span class="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">Statistics</span>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-2 mb-4" data-id="mentor-1-modes">
+            <i data-lucide="video" class="w-4 h-4 text-blue-600"></i>
+            <i data-lucide="headphones" class="w-4 h-4 text-green-600"></i>
+            <i data-lucide="message-circle" class="w-4 h-4 text-purple-600"></i>
+            <span class="text-xs text-gray-600">Video, Audio, Chat</span>
+          </div>
+          
+          <div class="flex space-x-2" data-id="mentor-1-actions">
+            <button class="flex-1 bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition duration-200 text-sm font-medium" data-id="book-session-1">
+              Book Session
+            </button>
+            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200" data-id="view-profile-1">
+              <i data-lucide="user" class="w-4 h-4"></i>
+            </button>
+            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200" data-id="message-1">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mentor Card 2 -->
+        <div class="bg-white rounded-xl p-6 shadow-sm border hover:shadow-lg transition duration-200" data-id="mentor-card-2">
+          <div class="flex items-start space-x-4 mb-4">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1494790108755-2616c4c9e852?w=100&h=100&fit=crop&crop=face" alt="Aryan Shukla" class="w-16 h-16 rounded-full object-cover">
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-yellow-400 border-2 border-white rounded-full"></div>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-1">Aryan Shukla</h3>
+              <p class="text-sm text-gray-600 mb-2">Physics Professor</p>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400 mr-2">
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+                <span class="text-sm text-gray-600">4.8 (93 reviews)</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">Busy</span>
+                <span class="text-sm font-medium text-gray-900">Rs.300/hour</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mb-4" data-id="mentor-2-subjects">
+            <p class="text-sm text-gray-600 mb-2">Specializes in:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded-full">Quantum Physics</span>
+              <span class="px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded-full">Mechanics</span>
+              <span class="px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded-full">Thermodynamics</span>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-2 mb-4" data-id="mentor-2-modes">
+            <i data-lucide="video" class="w-4 h-4 text-blue-600"></i>
+            <i data-lucide="headphones" class="w-4 h-4 text-green-600"></i>
+            <span class="text-xs text-gray-600">Video, Audio</span>
+          </div>
+          
+          <div class="flex space-x-2" data-id="mentor-2-actions">
+            <button class="flex-1 bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition duration-200 text-sm font-medium" data-id="book-session-2">
+              Book Session
+            </button>
+            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200" data-id="view-profile-2">
+              <i data-lucide="user" class="w-4 h-4"></i>
+            </button>
+            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200" data-id="message-2">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mentor Card 3 -->
+        <div class="bg-white rounded-xl p-6 shadow-sm border hover:shadow-lg transition duration-200" data-id="mentor-card-3">
+          <div class="flex items-start space-x-4 mb-4">
+            <div class="relative">
+
+              <img src="" alt="Parag Shirke" class="w-16 h-16 rounded-full object-cover">
+
+              <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-400 border-2 border-white rounded-full"></div>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-gray-900 mb-1">Parag Shirke</h3>
+              <p class="text-sm text-gray-600 mb-2">Programming Mentor</p>
+              <div class="flex items-center mb-2">
+                <div class="flex text-yellow-400 mr-2">
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+                <span class="text-sm text-gray-600">4.7 (156 reviews)</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Available Now</span>
+                <span class="text-sm font-medium text-gray-900">Rs.500/hour</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mb-4" data-id="mentor-3-subjects">
+            <p class="text-sm text-gray-600 mb-2">Specializes in:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2 py-1 text-xs bg-red-100 text-red-800 rounded-full">Python</span>
+              <span class="px-2 py-1 text-xs bg-red-100 text-red-800 rounded-full">JavaScript</span>
+              <span class="px-2 py-1 text-xs bg-red-100 text-red-800 rounded-full">React</span>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-2 mb-4" data-id="mentor-3-modes">
+            <i data-lucide="video" class="w-4 h-4 text-blue-600"></i>
+            <i data-lucide="message-circle" class="w-4 h-4 text-purple-600"></i>
+            <span class="text-xs text-gray-600">Video, Chat</span>
+          </div>
+          
+          <div class="flex space-x-2" data-id="mentor-3-actions">
+            <button class="flex-1 bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition duration-200 text-sm font-medium" data-id="book-session-3">
+              Book Session
+            </button>
+            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200" data-id="view-profile-3">
+              <i data-lucide="user" class="w-4 h-4"></i>
+            </button>
+            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200" data-id="message-3">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Additional mentor cards would go here... -->
+        
+        <!-- Show More Button -->
+        <div class="md:col-span-2 lg:col-span-3 text-center" data-id="load-more-section">
+          <button class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition duration-200 font-medium" data-id="load-more-btn">
+            <i data-lucide="plus" class="w-5 h-5 mr-2 inline"></i>
+            Load More Mentors
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Booking Modal -->
+  <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" data-id="booking-modal">
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white rounded-xl max-w-md w-full p-6" data-id="booking-modal-content">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl font-bold text-gray-900">Book a Session</h2>
+          <button class="text-gray-400 hover:text-gray-600" id="close-booking-modal" data-id="close-booking-modal">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        
+        <div class="space-y-4" data-id="booking-form">
+          <div data-id="session-type-select">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Session Type</label>
+            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+              <option>Video Call</option>
+              <option>Audio Call</option>
+              <option>Chat Only</option>
+            </select>
+          </div>
+          
+          <div data-id="session-duration-select">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Duration</label>
+            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+              <option>30 minutes - $17.50</option>
+              <option>60 minutes - $35.00</option>
+              <option>90 minutes - $52.50</option>
+            </select>
+          </div>
+          
+          <div data-id="session-topic-input">
+            <label class="block text-sm font-medium text-gray-700 mb-2">Topic/Question</label>
+            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500" rows="3" placeholder="What do you need help with?"></textarea>
+          </div>
+          
+          <div class="flex space-x-3 pt-4">
+            <button class="flex-1 bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition duration-200" data-id="confirm-booking">
+              Confirm Booking
+            </button>
+            <button class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition duration-200" data-id="cancel-booking">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    
+    // Load navbar
+    loadComponent('#navbar-container');
+    
+    // Initialize icons after components are loaded
+    setTimeout(() => {
+      lucide.createIcons();
+    }, 100);
+    
+    // Page functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      // Advanced filters toggle
+      const toggleAdvancedFilters = document.getElementById('toggle-advanced-filters');
+      const advancedFiltersPanel = document.getElementById('advanced-filters-panel');
+      const filterChevron = document.getElementById('filter-chevron');
+      
+      toggleAdvancedFilters?.addEventListener('click', () => {
+        advancedFiltersPanel?.classList.toggle('hidden');
+        filterChevron?.classList.toggle('rotate-180');
+      });
+      
+      // Booking modal functionality
+      const bookingModal = document.getElementById('booking-modal');
+      const closeBookingModal = document.getElementById('close-booking-modal');
+      const cancelBooking = document.getElementById('cancel-booking');
+      const bookingButtons = document.querySelectorAll('[data-id^="book-session-"]');
+      
+      // Show booking modal
+      bookingButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          bookingModal?.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      
+      // Hide booking modal
+      function hideBookingModal() {
+        bookingModal?.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+      
+      closeBookingModal?.addEventListener('click', hideBookingModal);
+      cancelBooking?.addEventListener('click', hideBookingModal);
+      bookingModal?.addEventListener('click', (e) => {
+        if (e.target === bookingModal) hideBookingModal();
+      });
+      
+      // Confirm booking
+      document.getElementById('confirm-booking')?.addEventListener('click', () => {
+        alert('Session booked successfully! You will receive a confirmation email shortly.');
+        hideBookingModal();
+      });
+      
+      // Search functionality
+      const searchInput = document.getElementById('search-input');
+      searchInput?.addEventListener('input', (e) => {
+        // Simulate search filtering
+        console.log('Searching for:', e.target.value);
+      });
+      
+      // Filter functionality
+      const filters = ['subject-filter', 'availability-filter', 'rating-filter', 'price-filter', 'session-type-filter'];
+      filters.forEach(filterId => {
+        const filter = document.getElementById(filterId);
+        filter?.addEventListener('change', (e) => {
+          console.log(`${filterId} changed to:`, e.target.value);
+          // Here you would implement actual filtering logic
+        });
+      });
+      
+      // Sort functionality
+      const sortSelect = document.getElementById('sort-select');
+      sortSelect?.addEventListener('change', (e) => {
+        console.log('Sorting by:', e.target.value);
+        // Here you would implement actual sorting logic
+      });
+      
+      // View toggle
+      const gridViewBtn = document.getElementById('grid-view-btn');
+      const listViewBtn = document.getElementById('list-view-btn');
+      const mentorsGrid = document.getElementById('mentors-grid');
+      
+      gridViewBtn?.addEventListener('click', () => {
+        gridViewBtn.classList.add('bg-primary-100', 'text-primary-700');
+        gridViewBtn.classList.remove('text-gray-600', 'hover:bg-gray-100');
+        listViewBtn?.classList.remove('bg-primary-100', 'text-primary-700');
+        listViewBtn?.classList.add('text-gray-600', 'hover:bg-gray-100');
+        mentorsGrid?.classList.remove('grid-cols-1');
+        mentorsGrid?.classList.add('grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3');
+      });
+      
+      listViewBtn?.addEventListener('click', () => {
+        listViewBtn.classList.add('bg-primary-100', 'text-primary-700');
+        listViewBtn.classList.remove('text-gray-600', 'hover:bg-gray-100');
+        gridViewBtn?.classList.remove('bg-primary-100', 'text-primary-700');
+        gridViewBtn?.classList.add('text-gray-600', 'hover:bg-gray-100');
+        mentorsGrid?.classList.add('grid-cols-1');
+        mentorsGrid?.classList.remove('md:grid-cols-2', 'lg:grid-cols-3');
+      });
+      
+      // Load more functionality
+      document.getElementById('load-more-btn')?.addEventListener('click', () => {
+        // Simulate loading more mentors
+        alert('Loading more mentors...');
+      });
+    });
+  </script>
+</body>
+</html>
